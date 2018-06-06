@@ -16,14 +16,26 @@ app.set('view engine' , 'ejs');
 app.set('views' , path.join(__dirname, 'views'));
 
 //middlewares
-module.exports = () => {
-    return mysql.createConnection({
-        host: 'localhost',
-        user:'root',
-        password:'ingsis123',
-        database:'crudnodejsmysql'
-    })
-};
+//module.exports = () => {
+  //  return mysql.createConnection({
+    //    host: 'localhost',
+      //  user:'root',
+        //password:'ingsis123',
+       // database:'crudnodejsmysql'
+   // })
+// };
+
+
+
+
+app.use(morgan('dev'));
+app.use(myConnection(mysql , {
+    host: 'localhost',
+    user:'root',
+    password:'password',
+    database: 'crudnodejsmysql',
+    insecureAuth : true,
+}));
 
 //routes
 app.use('/' , customerRoutes);
