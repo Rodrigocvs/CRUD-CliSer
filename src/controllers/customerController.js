@@ -1,7 +1,7 @@
 const controller = {};
 
 controller.list = (req , res) => {
-    res.send('Hello Wolrd');
+    res.send('hello world');
 };
 
 module.exports = controller;
